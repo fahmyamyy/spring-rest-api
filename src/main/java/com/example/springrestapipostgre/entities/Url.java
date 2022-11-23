@@ -1,6 +1,5 @@
 package com.example.springrestapipostgre.entities;
 
-
 import javax.persistence.*;
 
 @Table
@@ -22,6 +21,12 @@ public class Url {
     private String shortUrl;
 
     public Url() {
+    }
+
+    public Url(Long id, String longUrl, String shortUrl) {
+        Id = id;
+        this.longUrl = longUrl;
+        this.shortUrl = shortUrl;
     }
 
     public Url(String longUrl, String shortUrl) {

@@ -2,6 +2,7 @@ package com.example.springrestapipostgre.services;
 
 import com.example.springrestapipostgre.entities.Url;
 import com.example.springrestapipostgre.repositories.UrlRepositories;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class UrlServices {
     private UrlRepositories urlRepositories;
 
+    @Autowired
     public UrlServices(UrlRepositories urlRepositories) {
         this.urlRepositories = urlRepositories;
     }
@@ -19,13 +21,10 @@ public class UrlServices {
     }
 
     public Url UrlAdd(Url url) {
-//        System.out.println(url);
-        urlRepositories.save(url);
-        return url;
+        return urlRepositories.save(url);
     }
 
-    public List<Url> UrlByShort(String shortUrl) {
-        System.out.println(shortUrl);
+    public List<Url> FindByShortUrl(String shortUrl) {
         return urlRepositories.findByShortUrl(shortUrl);
     }
 }
